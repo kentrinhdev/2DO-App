@@ -93,13 +93,18 @@ const STORE = [
 ];
 
 const STATS = {
-    score: 0,
-    questionNumber: 1,
-    correct: 0,
-    isCorrect: false,
-    incorrect: 0,
-    grade: "",
-    name: "",
     todoCount: 0,
     todoneCount: 0,
   }
+
+  // const STATS = {
+  //   score: 0,
+  //   questionNumber: 1,
+  //   correct: 0,
+  //   isCorrect: false,
+  //   incorrect: 0,
+  //   grade: "",
+  //   name: "",
+  //   todoCount: 0,
+  //   todoneCount: 0,
+  // }

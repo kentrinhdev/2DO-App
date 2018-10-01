@@ -1,19 +1,5 @@
 'use strict';
 
-//Place questions in random order
-function shuffle( array ) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-}
-//Call only once to shuffle questions
-shuffle(STORE);
-
 function startWelcome() {
   $('#intro-page').toggle().delay(200).fadeIn(1000);
   $('#modal').toggle().delay(500).slideDown(3000);
@@ -44,6 +30,17 @@ function handleWelcomeGoSubmit() {
   });
 }
 
+function renderDateTime() {
+  var date = new Date();
+  var d = date.toString().substring(0, 3).toUpperCase();
+  var dt = date.toLocaleString();
+  var fullDate = d + " " + dt;
+
+  $('#subnav-date').html(fullDate);
+
+  return fullDate;
+}
+
 function capFirstLetter(inputValue) {
   var s = inputValue;
 
@@ -64,18 +61,18 @@ function handleAddTaskButton() {
 
     var tVal = $('#add-task-box').val();
 
+    var dt = renderDateTime();
     tVal = capFirstLetter(tVal);
 
     if (tVal == "" || tVal == " " || tVal == null) {
       return false;
     } else {
       $('#todo-task-list').prepend(
-        `
-        <li class="todo-task-li">${tVal}</li>
-        `
+        `<li class="todo-task-li">${tVal} <br> <span class="todo-task-date">${dt}</span></li>`
       );
       let count = STATS.todoCount + 1;
       STATS.todoCount = count;
+      $('#todo-count').html(STATS.todoCount);
       console.log("2DO " + count + ": [ " + tVal + " ]");
     }
     $('#add-task-box').val("");
@@ -111,10 +108,11 @@ function detectTodoLiClick() {
       thisLi.children().remove('#edit-done-btn-wrap');
       thisLi.attr('data-click-state', 0);
     } else {
-      $('#todo-task-list').not(thisLi).each(function() {
-        $('li').not(thisLi).children().remove('#edit-done-btn-wrap');
-        $('li').not(thisLi).attr('data-click-state', 0);
-      });
+      // Find any li item that is not the currently selected li
+      // then remove the edit and done buttons 
+      $('li').not(thisLi).children().remove('#edit-done-btn-wrap');
+      // then set their click state to unclicked
+      $('li').not(thisLi).attr('data-click-state', 0);
 
       thisLi.append(
         `<div class="edit-done-btn-wrap" id="edit-done-btn-wrap">
@@ -139,10 +137,14 @@ function detectTodoLiClick() {
 function handleDoneClick(tVal) {
   $('#done-btn').on('click', function() {
     STATS.todoCount = STATS.todoCount - 1;
+    $('#todo-count').html(STATS.todoCount);
     console.log("2DO count: " + STATS.todoCount);
 
+    var dt = renderDateTime();
+
     $('#todone-task-list').prepend(
-      `<li class="todone-task-li">${tVal}</li>`
+      // `<li class="todone-task-li">${tVal}</li>`
+      `<li class="todone-task-li">${tVal} <br> <span class="todone-task-date">${dt}</span></li>`
     );
 
     let count = STATS.todoneCount + 1;
@@ -155,24 +157,28 @@ function detectTodoneLiClick() {
   $('#todone-task-list').on('click', 'li', function() {
     var thisLi = $(this);
 
-    if ($(this).attr('data-click-state') == 1) {
-      $(this).children().remove('#edit-done-btn-wrap');
-      $(this).attr('data-click-state', 0);
+    if ($(thisLi).attr('data-click-state') == 1) {
+      $(thisLi).children().remove('#edit-done-btn-wrap');
+      $(thisLi).attr('data-click-state', 0);
     } else {
-      $('#todone-task-list').not(thisLi).each(function() {
-        $('li').not(thisLi).children().remove('#edit-done-btn-wrap');
-        $('li').not(thisLi).attr('data-click-state', 0);
-      });
+      // Find any li item that is not the currently selected li
+      // then remove the edit and done buttons 
+      $('li').not(thisLi).children().remove('#edit-done-btn-wrap');
+      // then set their click state to unclicked
+      $('li').not(thisLi).attr('data-click-state', 0);
 
-      $(this).append(
+      // Add edit and done buttons as child elements
+      // to the currectly selected li item
+      $(thisLi).append(
         `<div class="edit-done-btn-wrap" id="edit-done-btn-wrap">
           <button class="list-btn edit-btn" id="omit-btn" type="button">OMIT</button>
           <button class="list-btn done-btn" id="undo-btn" type="button">UNDO</button>
         </div>`
       );
-      $(this).attr('data-click-state', 1);
+      // then set their click state to clicked
+      $(thisLi).attr('data-click-state', 1);
 
-      var str = $(this).html();
+      var str = $(thisLi).html();
       str = str.split('<')[0];
 
       handleUndoClick(str);
@@ -195,11 +201,14 @@ function handleUndoClick(tVal) {
     STATS.todoneCount = STATS.todoneCount - 1;
     console.log("2DONE count: " + STATS.todoneCount);
 
+    var dt = renderDateTime();
+
     $('#todo-task-list').prepend(
-      `<li class="todo-task-li">${tVal}</li>`
+      `<li class="todo-task-li">${tVal} <br> <span class="todo-task-date">${dt}</span></li>`
     );
     let count = STATS.todoCount + 1;
     STATS.todoCount = count;
+    $('#todo-count').html(STATS.todoCount);
     console.log("2DO " + count + ": [ " + tVal + " ]");
   });
 }
@@ -207,9 +216,6 @@ function handleUndoClick(tVal) {
 function handleSubmit() {
   $('#todo-form').on('submit', function(e) {
     e.preventDefault();
-
-    // handleAddTaskButton();
-    // keypressEnter();
   });
 }
 
@@ -217,6 +223,7 @@ function handleSubmit() {
 function startQuizApp() {
   startWelcome();
   handleWelcomeGoSubmit();
+  renderDateTime();
   handleAddTaskButton();
   keypressEnter();
   handleSubmit();
