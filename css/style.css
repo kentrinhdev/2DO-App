@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+:root {
+  --font-family: 'Lato', sans-serif;
+}
+
+/* GLOBAL ELEMENTS */
+html, body {
+  min-width: 315px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-family: 'Lato';
+  color: steelblue;
+}
+a:link {
+  text-decoration: none;
+}
+ul, li {
+  list-style: none;
+}
+* {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* MAIN STYLING */
+.container-intro {
+  width: 100vw;
+  height: 100vh;
+  background: url(/img/bg.jpg);
+  background-size: cover;
+}
+
+nav {
+  width: 100%;
+  color: steelblue;
+  display: inline-block;
+  vertical-align: baseline;
+  display: none;
+}
+
+nav span {
+  font-size: 1.1rem;
+  color: lightseagreen;
+  margin-left: 0.4rem;
+}
+
+.nav-title {
+  font-size: 3.1rem;
+}
+
+.left-block {
+  width: 60%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  /* margin-bottom: -15px; */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.right-block {
+  width: 39%;
+  padding-right: 15px;
+  text-align: right;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.right-block a:hover {
+  color: #4CAF50; /* Green */;
+}
+
+.subnav-container {
+  width: 100vw;
+  min-width: 315px;
+  margin-bottom: 15px;
+  background-image: linear-gradient(to bottom right, #0575E6, #021B79);
+}
+
+.subnav-wrap {
+  width: 100vw;
+  min-width: 315px;
+  height: 25vh;
+  background: url('/img/head-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  padding-top: 25px;
+  box-shadow: 0px 20px 30px -15px #888888;
+}
+
+.subnav-span {
+  color: white;
+}
+
+.nav-player-name {
+  color: #fff;
+  padding-left: 25px;
+  padding-right: 0.0rem;
+}
+
+.nav-player-name-end {
+  font-weight: bold;
+  color: lightseagreen !important; /* Green */
+}
+
+.end-message {
+  margin-bottom: 2rem !important;
+}
+
+.todo-task-li, .todone-task-li {
+  font-size: 1.2rem;
+  color: #4CAF50;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(220,220,220,0.5);
+}
+
+.todo-task-li:hover {
+  color: #2196F3;
+  cursor: crosshair;
+}
+
+.todone-task-li {
+  color: lightgrey;
+}
+
+.todone-task-li:hover {
+  color: #4CAF50;
+  cursor: crosshair;
+}
+
+.question-box {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 2.5rem;
+  font-size: 1.7rem;
+  color: lightseagreen;
+  /* background-color: lightblue; */
+  /* border-radius: 5px 30px; */
+}
+
+.question-box p {
+  margin-top: 0.5rem;
+  margin-bottom: -2px;
+  padding-bottom: 1rem;
+}
+
+.question-score {
+  font-size: 1.5rem;
+  color: lightseagreen;
+  margin-bottom: -25vh;
+}
+
+.score-br {
+  margin-bottom: -10px;
+}
+
+.question-label {
+  font-size: 1.5rem;
+  color: steelblue;
+}
+
+.question-options {
+  margin-top: -2.4rem;
+}
+
+/* MULTIPLE CHOICE OPTIONS */
+.form-legend {
+  margin-left: 30px;
+  margin-bottom: 5px;
+  padding-top: 15px;
+}
+
+.radio-box {
+  padding-left: 35px;
+  margin-bottom: 12px;
+  /* font-size: 22px; */
+  font-size: 2.5rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: block;
+  position: relative;
+}
+
+/* Hide the browser's default radio button */
+.radio-box input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  height: 26px;
+  width: 26px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.radio-box:hover {
+  color: #4CAF50; /* Green */
+}
+
+/* On mouse-over, add a grey background color */
+.radio-box:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio-box input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-box input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-box .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.edit-done-btn-wrap {
+  padding-top: 8px;
+  text-align: right;
+}
+
+.list-btn:hover {
+  /* background: linear-gradient(to bottom right, #0575E6, #021B79); */
+  background: linear-gradient(to bottom right, #26D0CE, #1A2980);
+  cursor: crosshair;
+}
+
+.list-btn {
+  width: 60px;
+  height: 25px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.edit-btn {
+  margin-right: 10px;
+}
+
+.container-button {
+  text-align: right;
+}
+
+.container-button span {
+  font-size: 1.5rem;
+  color: lightseagreen;
+}
+
+.add-task-box-container {
+  width: 100vw;
+  height: 70px;
+  padding-top: 10px;
+  margin: 0;
+  text-align: center;
+  background-image: linear-gradient(to bottom right, #26D0CE, #1A2980);
+  bottom: 15%;
+  right: 0px;
+  position: fixed;
+  display: block;
+  z-index: 99;
+}
+
+.add-task-box-container:hover {
+  background-image: linear-gradient(to bottom right, #0575E6, #021B79);
+}
+
+.add-task-box::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  font-style: italic;
+  opacity: 0.3; /* Firefox */
+}
+.add-task-box::-moz-placeholder { /* Firefox 19+ */
+  color: white;
+  font-style: italic;
+}
+.add-task-box:-ms-input-placeholder { /* IE 10+ */
+  color: white;
+  font-style: italic;
+}
+.add-task-box::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+  font-style: italic;
+}
+.add-task-box:-moz-placeholder { /* Firefox 18- */
+  color: white;
+  font-style: italic;
+}
+
+.add-task-box {
+  width: 90vw;
+  height: 50px; /* 40px */
+  font-size: 1.5rem;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: rgba(255,255,255,0.0);
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+.add-task-box:hover {
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+.add-task-box:focus {
+  border: none;
+  border-bottom: 1px solid white;
+}
+
+.add-task-btn-wrap {
+  bottom: 20px;
+  right: 30px;
+  position: fixed;
+  z-index: 99;
+}
+
+.button-submit {
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-color: #4CAF50; /* Green */
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px 10px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button-submit-yes {
+  width: 50px;
+  height: 50px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-color: #4CAF50; /* Green */
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+.button-submit-next {
+  background-color: lightseagreen;
+}
+
+.button-submit-done {
+  background-color: #2196F3;
+}
+
+.container-go > .button-submit {
+  padding: 15px 40px;
+}
+
+.button-submit:hover {
+  background-image: linear-gradient(to bottom right, #26D0CE, #1A2980);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  cursor: crosshair;
+}
+
+.todone-title-wrap {
+  height: 8vh;
+  line-height: 7.5vh;
+  padding-top: 0;
+}
+
+.todone-title {
+  padding-left: 25px;
+  font-size: 1.2rem;
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+.feedback-box {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-top: -3rem;
+  margin-bottom: 5rem;
+  /* font-size: 1rem; */
+  font-size: 1.3rem;
+  border-radius: 5px 30px;
+}
+
+.feedback-box p {
+  padding-top: 0.3rem;
+  margin: 0px 1.5rem 0px 0px;
+}
+
+.answer-correct {
+  font-size: 1.5rem;
+  color: #4CAF50; /* Green */
+}
+
+.answer-wrong {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.welcome-form {
+  /*height: 100%;*/
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcome-form h2 {
+  font-size: 2.2rem;
+  color: lightseagreen;
+  margin-bottom: 20px;
+}
+
+.welcome-form h3 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.welcome-form p {
+  line-height: 1.6em;
+  margin-bottom: 15px;
+}
+
+.modal-name {
+  color: lightseagreen;
+}
+
+.welcome-form span {
+  color: #4CAF50; /* Green */
+}
+
+#modal, #modal-end {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Lato';
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  position: fixed;
+}
+
+.modal-box {
+  width: 300px;
+  min-width: 300px;
+  height: 470px;
+  padding-top: 3vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 4vh;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.modal-input {
+  width: 265px;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 3px;
+  border-bottom: 1px solid lightseagreen;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: lightseagreen !important;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: lightgrey;
+  font-style: italic;
+  opacity: 1; /* Firefox */
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: lightgray;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: lightgray;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: lightgrey;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: lightgray;
+}
+
+.container-go {
+  text-align: center;
+}
+
+/* FOOTER SECTION */
+footer {
+  width: 100vw;
+  min-width: 315px;
+  line-height: 8vh;
+  text-align: center;
+  font-size: 0.6rem;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to bottom right, #0575E6, #021B79);
+  position: fixed;
+}
+
+/* SMALLER SCREENS */
+@media only screen and (min-width: 768px) {
+  nav {
+    display: inline-block;
+  }
+
+  .button-submit-yes {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .button-submit-yes {
+    width: 120px;
+    height: 120px;
+  }
+}

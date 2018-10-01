@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Quiz | Director Deduction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=11">
+  <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/css/grid.css" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+<body>
+  <div class="container" id="main-app">
+    <!--------------------------------------------->
+    <!-------------------TOP nav------------------->
+    <!--------------------------------------------->
+    <div class="row">
+      <div class="twelve columns">
+        <nav role="navigation">
+          <div class="left-block">
+            <header role="banner"><h1 class="nav-title" id="nav-title">2DO | 2DONE</h1></header>
+          </div>
+
+          <div class="right-block">
+            <span><a href="#">Sign Up</a> | <a href="#">Log In</a></span>
+          </div>
+        </nav>
+      </div><!-- col-12 -->
+    </div><!-- row -->
+    <!--------------------------------------------->
+    <!-------------------END nav------------------->
+    <!--------------------------------------------->
+
+    <!--------------------------------------------->
+    <!-------------------TOP one------------------->
+    <!--------------------------------------------->
+    <div class="row">
+      <div class="twelve columns">
+        <div class="subnav-container">
+          <div class="subnav-wrap">
+            <span class="subnav-title"></span><span class="nav-player-name" id="nav-player-name"></span>
+            <span class="subnav-span">'s</span>
+            <span class="subnav-span">2DO | 2DONE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--------------------------------------------->
+    <!-------------------END one------------------->
+    <!--------------------------------------------->
+
+    <!--------------------------------------------->
+    <!-------------------TOP two------------------->
+    <!--------------------------------------------->
+    <div class="row">
+      <div class="twelve columns">
+        <div class="add-task-box-container" id="add-task-box-container">
+          <input class="add-task-box" id="add-task-box" name="add-task-box" type="text" placeholder="What do you need to do?" autofocus />
+        </div>
+
+        <div class="question-box" id="question-box">
+          <ul class="todo-task-list" id="todo-task-list">
+            <!-- <li></li> -->
+          </ul>
+        </div>
+      </div><!-- col-12 -->
+    </div><!-- row -->
+    <!--------------------------------------------->
+    <!-------------------END two------------------->
+    <!--------------------------------------------->
+
+    <!--------------------------------------------->
+    <!------------------TOP three------------------>
+    <!--------------------------------------------->
+    <div class="row">
+      <div class="twelve columns">
+        <div class="subnav-container">
+          <div class="subnav-wrap todone-title-wrap">
+            <h2 class="todone-title">2DONE | List</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--------------------------------------------->
+    <!------------------END three------------------>
+    <!--------------------------------------------->
+
+    <!--------------------------------------------->
+    <!------------------TOP four------------------->
+    <!--------------------------------------------->
+    <div class="row">
+      <div class="twelve columns">
+        <main role="main">
+          <div class="question-box" id="question-box">
+            <ul class="todone-task-list" id="todone-task-list">
+              <!-- <li></li> -->
+            </ul>
+          </div>
+        </main>
+      </div><!-- col-12 -->
+    </div><!-- row -->
+    <!--------------------------------------------->
+    <!------------------END four------------------->
+    <!--------------------------------------------->
+
+    <!--------------------------------------------->
+    <!------------------TOP five------------------->
+    <!--------------------------------------------->
+    <div class="row">
+      <div class="twelve columns">
+        <section class="todo-section" role="region">
+          <div class="todo-form-wrap">
+            <form class="todo-form" id="todo-form" role="form">
+              <fieldset>
+                <div class="container-button" id="container-button">
+                  <div class="add-task-btn-wrap">
+                    <input class="button-submit button-submit-yes" id="btn-submit-yes" type="submit" value="+">
+                  </div>
+                </div>
+              </fieldset>
+            </form>
+          </div>
+          <div class="clear-fix"></div>
+        </section>
+      </div><!-- col-12 -->
+    </div><!-- row -->
+    <!--------------------------------------------->
+    <!------------------END five------------------->
+    <!--------------------------------------------->
+  </div><!-- container -->
+
+  <!-- /////////////////////////////////////////// -->
+
+  <!--------------------------------------------->
+  <!-----------------TOP intro------------------->
+  <!--------------------------------------------->
+  <div class="container-intro" id="intro-page">
+    <div class="twelve columns">
+      <div id="modal">
+        <div class="modal-box">
+          <form class="welcome-form" id="welcome-form">
+            <h2>Hey!</h2>
+            <h3>Welcome to <span>2DO | 2DONE</span>.</h3>
+            <p>
+              If you have tasks that need to get done but lose track of them then you've found the right app. 
+              We're' here to help you move them from to-do limbo into to-done reality!
+            </p>
+            
+            <label for="hello-name" class="modal-name">Please enter your name: <br>
+              <input class="modal-input" id="hello-name" type="text" placeholder="John or Jane" name="name" data-required required="required">
+            </label>
+
+            <p></p>
+
+            <div class="container-go">
+              <input type="submit" class="button-submit" id="btn-go" value="GO">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------->
+  <!-----------------END intro------------------->
+  <!--------------------------------------------->
+
+  <footer class="footer" id="footer" role="contentinfo">
+    <small>&copy; Copyright 2018 Ken Trinh</small>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/js/store.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
